@@ -8,7 +8,7 @@ const fs = require('fs');
 exports.createSauce = (req, res, next) => {
   const saucesObject = JSON.parse(req.body.sauces);
   delete saucesObject._id;
-  const sauces = new sauces({
+  const sauces = new Sauces({
     ...saucesObject,
     imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
   });
