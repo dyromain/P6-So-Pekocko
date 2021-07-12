@@ -98,13 +98,15 @@ export class SauceFormComponent implements OnInit {
     if (this.mode === 'new') {
       this.sauces.createSauce(newSauce, this.sauceForm.get('image').value).then(
         (response: { message: string }) => {
-          console.log(response.message);
+          console.log('Formulaire validé');
+          // console.log(response.message);
           this.loading = false;
           this.router.navigate(['/sauces']);
         }
       ).catch(
         (error) => {
-          console.error(error);
+          console.log('Formulaire non validé');
+          // console.error(error);
           this.loading = false;
           this.errorMsg = error.message;
         }

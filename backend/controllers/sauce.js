@@ -1,21 +1,23 @@
 // Importation du modèle Sauces
-const Sauces = require('../models/Sauces');
+const Sauces = require('../models/Sauce');
 
 // Package qui permet de modifier ou supprimer des fichiers
 const fs = require('fs');
 
 // Création de la sauce
 exports.createSauce = (req, res, next) => {
-  const saucesObject = JSON.parse(req.body.sauces);
-  delete saucesObject._id;
-  const sauces = new Sauces({
-    ...saucesObject,
-    imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
-  });
-  sauces.save()
+  const sauceInfo = JSON.parse(req.body.sauce);
+  sauceInfo.imageUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
+
+  const sauce = new Sauces({
+   
+      ...sauceInfo
+
+  })
+  sauce.save()
     .then(() => res.status(201).json({ message: 'Sauce enregistrée !'}))
     .catch(error => res.status(400).json({ error }));
-};
+  };
 
 // Modification de la sauce
 exports.modifySauce = (req, res, next) => {
