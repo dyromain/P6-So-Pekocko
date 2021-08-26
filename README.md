@@ -1,4 +1,12 @@
-## Piquante
+Construisez une API sécurisée pour une application d'avis gastronomiques
+
+Compétences évaluées :
+- Implémenter un modèle logique de données conformément à la réglementation
+- Mettre en œuvre des opérations CRUD de manière sécurisée
+- Stocker des données de manière sécurisée
+
+
+## So Pekocko
 
 Pour faire fonctionner le projet, vous devez installer :
 - [NodeJS](https://nodejs.org/en/download/) en version 12.14 ou 14.0 
